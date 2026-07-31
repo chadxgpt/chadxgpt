@@ -55,4 +55,4 @@ Read the last column downward. That is the whole ladder.
 - Teardowns of real systems, mine included: the loop, where it broke, what fixed it
 - The honest economics — most orchestration is over-engineering
 
-**Twice a week on [LinkedIn](https://www.linkedin.com/in/tanjunmeng/).**
+I write about it on [LinkedIn](https://www.linkedin.com/in/tanjunmeng/).
