@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="banner-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="banner-light.png">
-  <img alt="Jun Meng Tan — AI agents you can leave running. With receipts." src="banner-dark.png">
+  <img alt="Jun Meng Tan — AI agents you can leave running." src="banner-dark.png">
 </picture>
 
 I build AI agents reliable enough to leave running, and I write about how to get there.
@@ -9,6 +9,23 @@ I build AI agents reliable enough to leave running, and I write about how to get
 Production engineer at **Ant International** (Alipay/Ant Group), ex-PayPal. I ship systems
 where mistakes cost real money, which happens to be the bar an agent has to clear before
 you can walk away from it.
+
+---
+
+### The loop underneath all of it
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="loop-dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="loop-light.gif">
+  <img alt="An agent loop: gather context, act, check against external truth. On a mismatch the real error is fed back and it retries. On a match it exits." src="loop-dark.gif">
+</picture>
+
+An agent grading its own work is just the model agreeing with itself. The same weights
+that produced the error are now marking it.
+
+So the check comes from somewhere the agent cannot argue with: a test that passes or
+fails, a schema it validates against, a total that matches a known number. When they
+disagree, the loop gets handed the actual discrepancy, not a request to try harder.
 
 ---
 
@@ -31,29 +48,6 @@ Read the last column downward. That is the whole ladder.
 
 ---
 
-### The loop underneath all of it
-
-```mermaid
-flowchart LR
-    A([gather context]) --> B([act])
-    B --> C{check against<br/>external truth}
-    C -->|mismatch| D([feed the REAL error back])
-    D --> B
-    C -->|match| E([terminate])
-
-    style C stroke:#F04A1E,stroke-width:2px
-    style E stroke:#1A46C8,stroke-width:2px
-```
-
-An agent grading its own work is just the model agreeing with itself. The same weights
-that produced the error are now marking it. So the check comes from somewhere the agent
-cannot argue with: a test that passes or fails, a schema it validates against, a total
-that matches a known number.
-
-The evaluator is the environment, not the agent.
-
----
-
 ### What I write about
 
 - Why agents fail silently, and the external checks that catch them
@@ -62,8 +56,3 @@ The evaluator is the environment, not the agent.
 - The honest economics — most orchestration is over-engineering
 
 **Twice a week on [LinkedIn](https://www.linkedin.com/in/tanjunmeng/).**
-
----
-
-<sub>Native English + Mandarin · Singapore · Personal views, educational only. If I get
-something wrong, tell me and I'll fix it and credit you.</sub>
